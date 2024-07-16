@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/sheet.css">
+    <link rel="stylesheet" href="/styles/dropdown.css">
+    <link rel="stylesheet" href="/styles/search_bar.css">
+    <link rel="stylesheet" href="/styles/ul_list.css">
+    <title>World Cup <%= year %></title>
+</head>
+<body>
+  <div class="navbar">
+    <ul class="nb-dropdown-ul">
+      <li class="nb-dropdown-li"><a href="/">HOME</a></li>
+      <li class="dropdown">
+        <a href="/api/world_cup" class="dropbtn">WORLD CUP</a>
+        <div class="dropdown-content">
+          <a href="#">another</a>
+        </div>
+      </li>
+    </ul>
+    <form onsubmit="event.preventDefault();" role="search">
+      <label for="search">Search for stuff</label>
+      <input id="search" type="search" placeholder="Search..." autofocus required />
+      <button type="submit">Go</button>    
+    </form>
+  </div>
+    <!--===============================================================================-->
+    <div class="list">
+      <h1 class="title-content">World Cup <%= year %></h1>
+      <ul style="column-count: 4">
+        <% for (let i = 0; i < countries.length; i++) { %>
+        <li style="font-size: 1cm;"><a href="/api/world_cup/<%= year %>/<%= countries[i].country %>">
+          <span><%= countries[i].country %></span>
+        </a></li>
+        <% } %>
+      </ul>
+    </div>
+</body>
+</html>

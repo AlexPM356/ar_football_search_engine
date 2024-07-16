@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/sheet.css">
+    <link rel="stylesheet" href="/styles/dropdown.css">
+    <link rel="stylesheet" href="/styles/search_bar.css">
+    <link rel="stylesheet" href="/styles/table.css">
+    <title><%= player[0].player_name %></title>
+</head>
+<body>
+    <div class="navbar">
+        <ul class="nb-dropdown-ul">
+          <li class="nb-dropdown-li"><a href="/">HOME</a></li>
+          <li class="dropdown">
+            <a href="/api/world_cup" class="dropbtn">WORLD CUP</a>
+            <div class="dropdown-content">
+              <a href="#">another</a>
+            </div>
+          </li>
+        </ul>
+        <form onsubmit="event.preventDefault();" role="search">
+          <label for="search">Search for stuff</label>
+          <input id="search" type="search" placeholder="Search..." autofocus required />
+          <button type="submit">Go</button>    
+        </form>
+      </div>
+    <!--===============================================================================-->
+    <div class="mc-players">
+      <h1 class="title-content"><%= player[0].player_name %></h1>
+        <table class="container">
+            <thead>
+              <tr>
+                <th>PLAYER</th>
+                <th>POSITION</th>
+                <th>CAPS</th>
+                <th>GOALS</th>
+                <th>COUNTRY</th>
+                <th>BIRTHDATE</th>
+                <th>YEAR PLAYED</th>
+            </tr>
+            </thead>
+            <tbody>
+              <% for (let i = 0; i < player.length; i++) { %>
+                <tr>
+                    <td style="color: #FB667A;"><%= player[i].player_name %></td>
+                    <td><%= player[i].player_position %></td>
+                    <td><%= player[i].caps %></td>
+                    <td><%= player[i].goals %></td>
+                    <td><%= player[i].country %></td>
+                    <td><%= player[i].birthdate %></td>
+                    <td><%= player[i].year_played %></td>
+                </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
